@@ -20,6 +20,13 @@ manifest = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encodin
 require(manifest.get("name") == "vibeplus-plugin", "Unexpected plugin name")
 require(manifest.get("skills") == "./skills/", "Plugin must expose the skills directory")
 
+marketplace = json.loads((ROOT / ".agents" / "plugins" / "marketplace.json").read_text(encoding="utf-8"))
+require(marketplace.get("name") == "vibeplus", "Unexpected marketplace name")
+entries = marketplace.get("plugins", [])
+require(len(entries) == 1, "Marketplace must expose exactly one plugin")
+require(entries[0].get("name") == manifest.get("name"), "Marketplace and manifest plugin names differ")
+require(entries[0].get("source", {}).get("path") == ".", "Marketplace must point at the repository plugin root")
+
 for name in ("vibeplus", "code-review-skill", "engineering-policy-curator"):
     skill_file = ROOT / "skills" / name / "SKILL.md"
     require(skill_file.is_file(), f"Missing {skill_file}")

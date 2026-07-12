@@ -226,7 +226,31 @@ Planレビューとコードレビューには別のサブエージェントを�
 
 ## インストール
 
-このディレクトリをCodexプラグインとして配布またはインストールします。
+### GitHubからインストール
+
+Codex CLIでVibeplus marketplaceを追加します。
+
+```powershell
+codex plugin marketplace add 41Yr9/vibeplus --ref main
+```
+
+続いてプラグインをインストールします。
+
+```powershell
+codex plugin add vibeplus-plugin@vibeplus
+```
+
+インストール後は、新しいCodex taskまたはthreadを開始してください。Skillは次のtaskから利用できます。
+
+インストール状態を確認する場合:
+
+```powershell
+codex plugin list
+```
+
+### リポジトリ構成
+
+このリポジトリ自体がCodex plugin marketplaceとして動作します。
 
 ```text
 vibeplus-plugin/
