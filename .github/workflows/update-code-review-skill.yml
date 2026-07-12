@@ -1,0 +1,62 @@
+name: Update code-review-skill
+
+on:
+  schedule:
+    - cron: "23 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Stop when an update PR is already open
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh pr list --state open --json title --jq 'map(select(.title == "chore: update code-review-skill")) | length > 0' | grep -q true; then
+            echo "An update pull request is already open."
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update vendored skill
+        if: steps.existing.outputs.found != 'true'
+        run: python scripts/update_code_review_skill.py
+
+      - name: Validate distribution
+        if: steps.existing.outputs.found != 'true'
+        run: |
+          python scripts/validate_distribution.py
+          python -m unittest discover -s tests -v
+
+      - name: Create update pull request
+        if: steps.existing.outputs.found != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then
+            echo "Already up to date."
+            exit 0
+          fi
+          branch="automation/update-code-review-skill-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add skills/code-review-skill vendor/code-review-skill.version.yml
+          git commit -m "chore: update code-review-skill"
+          git push origin "$branch"
+          gh pr create \
+            --base "${GITHUB_EVENT_REPOSITORY_DEFAULT_BRANCH}" \
+            --head "$branch" \
+            --title "chore: update code-review-skill" \
+            --body $'## Summary\n- Update the vendored code-review-skill from upstream\n- Record the exact upstream commit\n\n## Validation\n- `python scripts/validate_distribution.py`'

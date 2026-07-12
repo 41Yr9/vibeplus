@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vibeplus"
+  short_description: "Plan, review, implement, verify, and open a pull request"
+  default_prompt: "Use $vibeplus to turn this coding request into a reviewed plan, implement it, review the code, and open a pull request."

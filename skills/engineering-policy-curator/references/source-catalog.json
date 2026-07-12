@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "microsoft-engineering-playbook",
+      "repository": "https://github.com/microsoft/code-with-engineering-playbook.git",
+      "ref": "main",
+      "commit": "016770e43d8a75be87b98c000c049f07c4a6e6f8",
+      "license": "CC-BY-4.0 for documentation; MIT for code",
+      "domains": ["design", "testing", "code-review", "ci-cd", "security", "observability", "accessibility", "technical-debt"],
+      "selectors": ["docs/**"]
+    },
+    {
+      "id": "google-engineering-practices",
+      "repository": "https://github.com/google/eng-practices.git",
+      "ref": "master",
+      "commit": "3bb3ec25b3b0199f4940b1aa75f0ac5c5753301c",
+      "license": "CC-BY-3.0",
+      "archived": true,
+      "domains": ["code-review", "change-size", "change-description", "maintainability"],
+      "selectors": [
+        "review/reviewer/standard.md",
+        "review/reviewer/looking-for.md",
+        "review/developer/small-cls.md",
+        "review/developer/cl-descriptions.md"
+      ]
+    },
+    {
+      "id": "architecture-decision-record",
+      "repository": "https://github.com/architecture-decision-record/architecture-decision-record.git",
+      "ref": "main",
+      "commit": "c1840053a4b8a70509768bf2a68b2da32f413ff3",
+      "license": "See upstream LICENSE",
+      "domains": ["architecture", "decision-records", "technical-debt"],
+      "selectors": ["README.md", "templates/**", "locales/en/**"]
+    }
+  ]
+}

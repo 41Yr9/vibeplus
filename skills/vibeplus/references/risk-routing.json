@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "thresholds": {
+    "fast_max": 1,
+    "standard_max": 5
+  },
+  "signals": {
+    "cosmetic_only": {"score": -2, "description": "表示文言、style、formatだけの変更"},
+    "tests_only": {"score": -2, "description": "製品コードを変えないテスト追加・修正"},
+    "docs_only": {"score": -2, "description": "実行動作を変えない文書変更"},
+    "localized_bugfix": {"score": -1, "description": "原因と受け入れ条件が明確な局所修正"},
+    "multiple_modules": {"score": 2, "description": "複数の責務またはmoduleへ影響"},
+    "public_api": {"score": 2, "description": "公開APIまたは外部contractを変更"},
+    "database_migration": {"score": 2, "description": "schemaまたはdata migrationを含む"},
+    "new_dependency": {"score": 1, "description": "新しい外部依存関係を追加"},
+    "multi_service": {"score": 2, "description": "複数serviceの協調変更"},
+    "hard_to_rollback": {"score": 2, "description": "rollbackが困難または時間依存"},
+    "production_behavior": {"score": 1, "description": "本番の運用動作、設定、可観測性を変更"},
+    "performance_sensitive": {"score": 1, "description": "高負荷経路、resource使用量、latencyへ影響"},
+    "personal_data": {"score": 3, "description": "個人情報または機密データを扱う"},
+    "auth_boundary": {"score": 3, "force_mode": "critical", "description": "認証・認可・trust boundaryを変更"},
+    "payments": {"score": 3, "force_mode": "critical", "description": "決済、残高、請求を変更"},
+    "secret_handling": {"score": 3, "force_mode": "critical", "description": "secret、token、鍵の保存や利用を変更"},
+    "destructive_data": {"score": 3, "force_mode": "critical", "description": "削除、不可逆変換、data lossの可能性"},
+    "production_privilege": {"score": 3, "force_mode": "critical", "description": "本番権限、IAM、管理者権限を変更"},
+    "irreversible_migration": {"score": 3, "force_mode": "critical", "description": "不可逆または後方互換性のないmigration"}
+  }
+}

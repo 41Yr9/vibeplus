@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Policy Curator"
+  short_description: "Turn public engineering guidance into project-specific policies"
+  default_prompt: "Use $engineering-policy-curator to create or update project engineering policies from pinned public sources."
