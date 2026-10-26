@@ -2,8 +2,8 @@
 name: code-review-skill
 description: |
   Provides comprehensive code review guidance for React 19, Vue 3, Angular 17+, Svelte 5,
-  Rust, TypeScript, Java, Java 8, PHP, Python, Django, FastAPI, Go, C#/.NET, Kotlin, Swift,
-  NestJS, C/C++, Zig, CSS/Less/Sass, Qt, and more.
+  Rust, TypeScript, Java, Java 8, PHP, Ruby, Rails, Python, Django, FastAPI, Go, C#/.NET, Kotlin, Swift,
+  Dart, Flutter, NestJS, C/C++, Zig, CSS/Less/Sass, Qt, and more.
   Covers architecture review, performance review, security audit, code quality anti-patterns,
   and common bugs across all ecosystems.
   Use when: reviewing pull requests, conducting PR reviews, code review, reviewing code changes,
@@ -13,8 +13,8 @@ allowed-tools:
   - Read
   - Grep
   - Glob
-  - Bash      # 运行 lint/test/build 命令验证代码质量
-  - WebFetch  # 查阅最新文档和最佳实践
+  - Bash
+  - WebFetch
 ---
 
 # Code Review Skill
@@ -194,10 +194,12 @@ Use labels to indicate priority:
 | **Java** | [Java Guide](reference/java.md) | Java 17/21 新特性, Spring Boot 3, 虚拟线程, Stream/Optional |
 | **Java 8 / Legacy** | [Java 8 Guide](reference/java8.md) | Java 8, Spring Boot 2, javax.*, Stream/Optional, java.time, CompletableFuture |
 | **PHP** | [PHP Guide](reference/php.md) | PHP 8.x type system, PDO, security review, Composer, PHPUnit/PHPStan |
+| **Ruby / Rails** | [Ruby Guide](reference/ruby.md) | Ruby semantics, Rails 8, Active Record, Active Job, security, testing |
 | **C# / .NET** | [C# Guide](reference/csharp.md) | C# 12 特性, 异步编程, EF Core 性能, ASP.NET Core, LINQ |
 | **Go** | [Go Guide](reference/go.md) | 错误处理, goroutine/channel, context, 接口设计 |
 | **Kotlin / Android** | [Kotlin Guide](reference/kotlin.md) | 协程, Flow, Jetpack Compose, 空安全, 内存泄漏, 架构模式 |
 | **Swift / SwiftUI** | [Swift Guide](reference/swift.md) | Optionals, Swift Concurrency, Sendable/actors, SwiftUI property wrappers, value vs reference types, API design |
+| **Dart / Flutter** | [Dart Guide](reference/dart.md) | Widget rebuilds, const constructors, null safety, isolates, async in build, Riverpod/Bloc, platform channels, keys, disposal |
 | **NestJS** | [NestJS Guide](reference/nestjs.md) | 依赖注入, 分层架构, DTO 验证, Guard/Interceptor, 循环依赖 |
 | **Svelte / SvelteKit** | [Svelte Guide](reference/svelte.md) | Runes, Load 函数, Form Actions, Store 迁移, SSR/CSR 边界 |
 | **C** | [C Guide](reference/c.md) | 指针/缓冲区, 内存安全, UB, 安全编码, 可移植性, 测试 |
