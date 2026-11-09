@@ -96,7 +96,7 @@ It covers **20+ languages and frameworks** with over **21,000 lines** of careful
       <td>~1,020</td>
     </tr>
     <tr>
-      <td rowspan="10"><strong>Backend</strong></td>
+      <td rowspan="11"><strong>Backend</strong></td>
       <td>&#9749; Java 17/21 + Spring Boot 3</td>
       <td><code>reference/java.md</code></td>
       <td>~410</td>
@@ -115,6 +115,11 @@ It covers **20+ languages and frameworks** with over **21,000 lines** of careful
       <td>PHP 8.x</td>
       <td><code>reference/php.md</code></td>
       <td>~700</td>
+    </tr>
+    <tr>
+      <td>&#128142; Ruby 3.4+/4.0 + Rails 8.x</td>
+      <td><code>reference/ruby.md</code></td>
+      <td>~960</td>
     </tr>
     <tr>
       <td>&#128230; NestJS</td>
@@ -147,7 +152,7 @@ It covers **20+ languages and frameworks** with over **21,000 lines** of careful
       <td>~1,070</td>
     </tr>
     <tr>
-      <td rowspan="6"><strong>Mobile / Systems</strong></td>
+      <td rowspan="7"><strong>Mobile / Systems</strong></td>
       <td>&#128241; Kotlin / Android</td>
       <td><code>reference/kotlin.md</code></td>
       <td>~1,020</td>
@@ -156,6 +161,11 @@ It covers **20+ languages and frameworks** with over **21,000 lines** of careful
       <td>&#127822; Swift / SwiftUI</td>
       <td><code>reference/swift.md</code></td>
       <td>~930</td>
+    </tr>
+    <tr>
+      <td>&#127919; Dart / Flutter</td>
+      <td><code>reference/dart.md</code></td>
+      <td>~650</td>
     </tr>
     <tr>
       <td>&#9881;&#65039; C</td>
@@ -283,12 +293,14 @@ code-review-skill/
 |   +-- java.md                           # Java 17/21 & Spring Boot 3
 |   +-- java8.md                          # Java 8 & Spring Boot 2 (legacy)
 |   +-- php.md                            # PHP 8.x types, PDO, security, Composer
+|   +-- ruby.md                           # Ruby 3.4+/4.0, Rails 8.x, Active Record/Job
 |   +-- python.md                         # Python async, typing, pytest
 |   +-- django.md                         # Django / DRF security, serializers, async
 |   +-- fastapi.md                        # FastAPI Depends, Pydantic v2, async, test-driven verification
 |   +-- go.md                             # Go goroutines, channels, context, interfaces
 |   +-- kotlin.md                         # Kotlin / Android coroutines, Compose, Flow
 |   +-- swift.md                          # Swift 5.9+/6, SwiftUI, concurrency, optionals
+|   +-- dart.md                           # Dart / Flutter rebuilds, null safety, isolates, state
 |   +-- csharp.md                         # C# 12 / .NET 8, EF Core, ASP.NET Core
 |   +-- c.md                              # C memory safety, UB, error handling
 |   +-- cpp.md                            # C++ RAII, move semantics, exception safety
@@ -321,7 +333,15 @@ code-review-skill/
 
 ### &#128640; Installation
 
-**Clone to your Claude Code skills directory:**
+**Install with `npx skills` (Cursor, Claude Code, Codex, OpenCode, and other agents):**
+
+```bash
+npx skills add awesome-skills/code-review-skill
+```
+
+The skills CLI finds `SKILL.md` at the repo root. Do not nest this skill under `skills/`.
+
+**Or clone into the Claude Code skills directory:**
 
 ```bash
 # macOS / Linux
@@ -364,6 +384,7 @@ Focus on: security, performance, and maintainability.
 | `Review this React component` | Loads `react.md` - checks hooks, Server Components, Suspense patterns |
 | `Review this Java PR` | Loads `java.md` - checks virtual threads, JPA, Spring Boot 3 patterns |
 | `Review this Java 8 / Spring Boot 2 PR` | Loads `java8.md` - Stream/Optional, java.time, RestTemplate timeouts, javax.* |
+| `Review this Flutter widget` | Loads `dart.md` - rebuilds, const, null safety, isolates, Riverpod/Bloc, keys, disposal |
 | `Security review of this Go service` | Loads `go.md` + `security-review-guide.md` |
 | `Architecture review` | Loads `architecture-review-guide.md` - SOLID, anti-patterns, coupling |
 | `Performance review` | Loads `performance-review-guide.md` - Web Vitals, N+1, complexity |
@@ -441,7 +462,7 @@ Focus on: security, performance, and maintainability.
 Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 **Ideas:**
-- New language guides (Ruby, Elixir, Scala...)
+- New language guides (Elixir, Scala, Lua...)
 - Framework-specific guides (Laravel, Spring WebFlux...)
 - Additional checklists and templates
 - Translations of core documentation
@@ -491,6 +512,7 @@ MIT &copy; [awesome-skills](https://github.com/awesome-skills)
 | | &#9749; Java 8 + Spring Boot 2 | `reference/java8.md` | ~580 |
 | | &#9889; FastAPI | `reference/fastapi.md` | ~590 |
 | | PHP 8.x | `reference/php.md` | ~700 |
+| | &#128142; Ruby 3.4+/4.0 + Rails 8.x | `reference/ruby.md` | ~960 |
 | | &#128230; NestJS | `reference/nestjs.md` | ~590 |
 | | &#128013; Django / DRF | `reference/django.md` | ~1,030 |
 | | &#128013; Python | `reference/python.md` | ~1,070 |
@@ -499,6 +521,7 @@ MIT &copy; [awesome-skills](https://github.com/awesome-skills)
 | | &#128187; C# / .NET 8 | `reference/csharp.md` | ~520 |
 | **移动 / 系统** | &#128241; Kotlin / Android | `reference/kotlin.md` | ~1,020 |
 | | &#127822; Swift / SwiftUI | `reference/swift.md` | ~930 |
+| | &#127919; Dart / Flutter | `reference/dart.md` | ~650 |
 | | &#9881;&#65039; C | `reference/c.md` | ~890 |
 | | &#128297; C++ | `reference/cpp.md` | ~890 |
 | | &#9889; Zig | `reference/zig.md` | ~440 |
@@ -570,12 +593,14 @@ code-review-skill/
 |   +-- java.md                           # Java 17/21 & Spring Boot 3
 |   +-- java8.md                          # Java 8 & Spring Boot 2（遗留栈）
 |   +-- php.md                            # PHP 8.x 类型、PDO、安全、Composer
+|   +-- ruby.md                           # Ruby 3.4+/4.0、Rails 8.x、Active Record/Job
 |   +-- python.md                         # Python async、类型注解、pytest
 |   +-- django.md                         # Django / DRF 安全、Serializer、异步视图
 |   +-- fastapi.md                        # FastAPI Depends、Pydantic v2、异步、测试驱动验证
 |   +-- go.md                             # Go goroutine、channel、context、接口
 |   +-- kotlin.md                         # Kotlin / Android 协程、Compose、Flow
 |   +-- swift.md                          # Swift 5.9+/6、SwiftUI、并发、可选值
+|   +-- dart.md                           # Dart / Flutter 重建、空安全、isolate、状态
 |   +-- csharp.md                         # C# 12 / .NET 8、EF Core、ASP.NET Core
 |   +-- c.md                              # C 内存安全、UB、错误处理
 |   +-- cpp.md                            # C++ RAII、移动语义、异常安全
@@ -608,7 +633,15 @@ code-review-skill/
 
 ### &#128640; 安装方法
 
-**克隆到 Claude Code skills 目录：**
+**使用 `npx skills` 安装（Cursor、Claude Code、Codex、OpenCode 及其他 Agent）：**
+
+```bash
+npx skills add awesome-skills/code-review-skill
+```
+
+skills CLI 会发现仓库根目录的 `SKILL.md`。不要把本技能嵌套到 `skills/` 目录下。
+
+**或克隆到 Claude Code skills 目录：**
 
 ```bash
 # macOS / Linux
@@ -651,6 +684,7 @@ Use code-review-skill to review this PR
 | `审查这个 React 组件` | 加载 `react.md`，检查 Hooks、Server Components、Suspense |
 | `审查这个 Java PR` | 加载 `java.md`，检查虚拟线程、JPA、Spring Boot 3 |
 | `审查这个 Java 8 / Spring Boot 2 PR` | 加载 `java8.md`，检查 Stream/Optional、java.time、RestTemplate 超时、javax.* |
+| `审查这个 Flutter 组件` | 加载 `dart.md`，检查重建、const、空安全、isolate、Riverpod/Bloc、Key、释放 |
 | `对这个 Go 服务进行安全审查` | 加载 `go.md` + `security-review-guide.md` |
 | `架构审查` | 加载 `architecture-review-guide.md`，检查 SOLID 与反模式 |
 | `性能审查` | 加载 `performance-review-guide.md`，分析 Web Vitals、N+1 等 |
@@ -728,7 +762,7 @@ Use code-review-skill to review this PR
 欢迎贡献！请查阅 [CONTRIBUTING.md](./CONTRIBUTING.md) 了解规范。
 
 **可贡献方向：**
-- 新增语言指南（Ruby、Elixir、Scala...）
+- 新增语言指南（Elixir、Scala、Lua...）
 - 框架专属指南（Laravel、Spring WebFlux...）
 - 补充检查清单和审查模板
 - 核心文档的多语言翻译
