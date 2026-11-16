@@ -29,9 +29,11 @@ code-review-skill/
 │   ├── java8.md                # Java 8, Spring Boot 2, javax.*, legacy stack
 │   ├── kotlin.md               # Kotlin / Android, coroutines, Flow, Compose
 │   ├── swift.md                # Swift 5.9+/6, SwiftUI, concurrency, optionals
+│   ├── dart.md                 # Dart / Flutter rebuilds, null safety, isolates, state
 │   ├── go.md                   # Error handling, goroutines, context
 │   ├── csharp.md               # C# / .NET 8, async, EF Core, ASP.NET Core
 │   ├── php.md                  # PHP 8.x, types, PDO, security, Composer
+│   ├── ruby.md                 # Ruby 3.4+/4.0, Rails 8.x, Active Record/Job
 │   ├── c.md                    # Memory safety, UB, error handling
 │   ├── cpp.md                  # RAII, move semantics, exception safety
 │   ├── zig.md                  # Allocators, error unions, comptime, C interop
